@@ -1,0 +1,34 @@
+{
+  "name": "vendure-workshop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:server": "ts-node ./src/index.ts",
+    "dev:worker": "ts-node ./src/index-worker.ts",
+    "dev": "concurrently yarn:dev:*",
+    "build": "tsc",
+    "start:server": "node ./dist/index.js",
+    "start:worker": "node ./dist/index-worker.js",
+    "start": "concurrently yarn:start:*",
+    "migration:generate": "ts-node migration generate",
+    "migration:run": "ts-node migration run",
+    "migration:revert": "ts-node migration revert",
+    "codegen": "graphql-codegen --config codegen.ts"
+  },
+  "dependencies": {
+    "@vendure/admin-ui-plugin": "2.1.7",
+    "@vendure/asset-server-plugin": "2.1.7",
+    "@vendure/core": "2.1.7",
+    "@vendure/email-plugin": "2.1.7",
+    "better-sqlite3": "9.4.3",
+    "dotenv": "16.4.5",
+    "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.6",
+    "@vendure/ui-devkit": "^2.1.7",
+    "concurrently": "8.2.2",
+    "ts-node": "10.9.2"
+  }
+}
